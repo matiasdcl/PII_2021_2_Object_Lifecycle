@@ -10,14 +10,36 @@ namespace ClassLibrary
 {
     /// <summary>
     /// Esta clase representa un tren muy básico.
-    /// </summary>
+    /// </summary
+
     public class Train
     {
+        public static int count = 0;
+        private string identifier;
+
+        public Train(string identifier)
+        {
+            this.identifier = identifier;
+            Train.count++;
+        }
+
+        ~Train()
+        {
+            Train.count--;
+            Console.WriteLine("se ha ejecutado el destructor");
+        }
+
+        public int TrainAmount()
+        {
+            return count;
+        }
+        
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
         /// <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
         public bool IsEngineStarted { get; private set; }
+        
 
         /// <summary>
         /// Enciende las máquinas del tren.

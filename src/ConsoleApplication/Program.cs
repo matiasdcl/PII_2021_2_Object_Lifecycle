@@ -19,9 +19,13 @@ namespace ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+            int counter_name = 1;
+            for (int i = 1; i == 100; i++)
+            {
+                var Train = new Train($"{counter_name}");
+                counter_name++;
+            }
+            //Console.Write($"there are {Train.TrainAmount} trains");
         }
     }
 }
